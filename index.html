@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<!-- =========================================================
+* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
+==============================================================
+
+* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
+* Created by: ThemeSelection
+* License: You must have a valid license purchased in order to legally use the theme for your project.
+* Copyright ThemeSelection (https://themeselection.com)
+
+=========================================================
+ -->
+<!-- beautify ignore:start -->
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>POS | Quản lý nhà hàng - quán nhậu</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Page CSS -->
+
+    <link rel="stylesheet" href="../assets/vendor/css/pages/page-icons.css" />
+
+    <!-- Helpers -->
+    <script src="../assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Layout container -->
+        <div class="layout-demo-wrapper">
+          <!-- Navbar -->
+          <nav class="navbar navbar-expand-lg navbar-light mb-1">
+            <div id="GhiChuBan" class="container-fluid">
+              <span class="badge badge-center bg-primary"> </span>
+              <a class="nav-link active" aria-current="page" href="javascript:void(0)">Bàn trống</a>
+
+              <span class="badge badge-center bg-success"> </span>
+              <a class="nav-link active" aria-current="page" href="javascript:void(0)">Bàn có khách</a>
+
+              <span class="badge badge-center bg-secondary"> </span>
+              <a class="nav-link active" aria-current="page" href="javascript:void(0)">Bàn bị khóa</a>              
+            </div>
+          </nav>
+
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y"> 
+              <!-- Icon container -->
+              <div class="d-flex flex-wrap" id="icons-container">
+                <!--
+                <div class="card icon-card cursor-pointer text-center mb-4 mx-2">
+                  <div class="card-body">
+                    <i class="bx bx-coffee mb-2"></i>
+                    <p class="icon-name text-capitalize text-truncate mb-0">Bàn 1</p>
+                  </div>
+                </div>
+                -->
+              </div>
+
+              <!-- Buttons -->
+                <!-- Fullscreen Modal -->
+                    <!-- Modal -->
+              <div class="modal fade" id="fullscreenModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen" role="document">
+                  <div class="modal-content bg-footer-theme">
+                    <div class="modal-header" style="padding-top: 4px;">
+                      <div class="col-lg-4" id="formModalLeftHeader">
+                        <h4 class="modal-title mx-2 card-title text-primary" id="modalFullTitle"><i class='bx bx-restaurant'></i><strong id="idBan"></strong></h4>
+                        <small class="text-muted mx-2" id="modalDateCheckin"></small>
+                      </div>
+                      <div class="">
+                        <form class="d-flex" onsubmit="return false">
+                          <input class="form-control me-2 mx-2" 
+                                  type="search" 
+                                  placeholder="Tìm kiếm sản phẩm" 
+                                  aria-label="Tìm kiếm"
+                                  id="inputSearch"
+                          >
+                          <button class="btn btn-outline-primary" type="submit"><i class='bx bx-search-alt-2'></i> Tìm kiếm</button>
+                        </form>
+                      </div>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body" style="padding-top: 0px; padding-bottom: 4px;">
+                      <!-- Body Modal-->
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="">
+                            <div class="row">
+                              <!-- Bên trái Modal -->
+                              <div class="col-4 bg-menu-theme" id="formModalLeftBody" style="
+                              padding-left: 0px;
+                              padding-right: 0px;
+                            ">
+                                <div class="table-responsive text-nowrap">
+                                  <table class="table table-sm">
+                                    <thead>
+                                      <tr>
+                                        <th class="text-center">#</th>
+                                        <th>Sản phẩm</th>
+                                        <th>Giá</th>
+                                        <th class="text-center" style="width: 100px;">Số lượng</th>
+                                        <th class="text-end">Thành tiền</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody id="cart-body" class="table-border-bottom-0">
+                                      <tr>
+                                        <td>1</td>
+                                        <td><strong>Mỳ xào bò</strong></td>
+                                        
+                                        <td><span class="badge bg-label-primary me-1">45.000</span></td>
+                                        <td>                                                
+                                          <div class="input-group input-group-sm">
+                                            <span type="button" class="input-group-text btn-outline-danger"style="font-weight: bold;">-</span>
+                                            <input type="text" class="form-control" style="
+                                              font-weight: bold;
+                                              text-align: center;
+                                              padding-left: 4px;
+                                              padding-right: 4px;"
+                                              placeholder="0" value="1">
+                                            <span type="button" class="input-group-text btn-outline-success" style="font-weight: bold;">+</span>
+                                          </div>
+                                        </td>
+                                        <td></td>
+                                      </tr>                                            
+                                    </tbody>
+                                    <tfoot class="table-border-bottom-0" id="cart-footer">
+                                      <tr>
+                                        <th></th>
+                                        <th>Tổng:</th>
+                                        <th></th>
+                                        <th>Số lượng</th>
+                                        <th>Thành tiền</th>
+                                      </tr>
+                                    </tfoot>
+                                  </table>
+                                </div>
+
+                              </div>
+
+                              <!-- Bên phải modal-->
+                              <div class="col-8 bg-footer-theme">
+                                <div class="d-flex-start flex-wrap" id="icons-container-products">
+                                  <!--
+                                  <div class="card icon-card cursor-pointer text-center mb-4 mx-2">
+                                    <div class="card-body">
+                                      <i class="bx bx-coffee mb-2"></i>
+                                      <p class="icon-name text-capitalize text-truncate mb-0">Bàn 1</p>
+                                    </div>
+                                  </div>
+                                  -->
+                                </div>
+
+                              </div>
+                            </div>                      
+                          </div>
+                        </div>
+                      </div>
+                      <!--/ Body Modal-->
+                    </div>
+                    <div class="modal-footer" style="padding-bottom: 4px;">
+                      <div class="col-lg-4">
+                        <button type="button" class="btn btn-outline-secondary mx-2" data-bs-dismiss="modal"><i class='bx bx-window-close'></i> 
+                          Đóng
+                        </button>
+
+                        <button class="btn btn-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasStart" aria-controls="offcanvasStart"><i class='bx bx-bookmark-alt'></i>
+                          Xem Hóa Đơn
+                        </button>
+
+                        <button type="button" class="btn btn-primary"><i class='bx bx-credit-card'></i> Thanh Toán</button>
+                      </div>
+                      <div class="col-lg-8">
+                        <div class="btn-group mx-2" role="group" aria-label="Basic radio toggle button group">
+                          <input type="radio" class="btn-check" name="btnradio" id="btnradio1" checked="" autocomplete="off" onclick="btnFilterProducts('/')">
+                          <label class="btn btn-outline-primary" for="btnradio1"><i class='bx bx-food-menu'></i> Tất cả</label>
+
+                          <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="btnFilterProducts('?catalogsId=Thức ăn')">
+                          <label class="btn btn-outline-primary" for="btnradio2"><i class='bx bx-dish'></i> Thức ăn</label>
+
+                          <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" onclick="btnFilterProducts('?catalogsId=Đồ uống')">
+                          <label class="btn btn-outline-primary" for="btnradio3"><i class='bx bx-drink' ></i> Đồ uống</label>
+
+                          
+                          <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" onclick="btnFilterProducts('?catalogsId=Khác')">
+                          <label class="btn btn-outline-primary" for="btnradio5"><i class='bx bx-category'></i> Khác</label>
+                          
+                          <button id="btnGroupDrop1" type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false"><i class='bx bx-food-menu'></i> 
+                            Thực đơn khác
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" id="dropDownMenu">
+                            <a class="dropdown-item" onclick="btnFilterProducts('?catalogsId=Bò')">Bò</a>
+                            <a class="dropdown-item" href="javascript:void(0);">Dropdown link</a>
+                          </div>
+                      
+                        </div>    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                  
+
+                <!-- / Modal fullscreen -->
+
+                <!-- Xem hóa đơn - hiển thị bên trái màn hình-->
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasStart" aria-labelledby="offcanvasStartLabel" style="visibility: visible;" aria-modal="true" role="dialog">
+                  <div class="offcanvas-header">
+                    <h5 id="offcanvasStartLabel" class="offcanvas-title">Xem thông tin hóa đơn</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+                  <div id="divBill" class="offcanvas-body mx-0 flex-grow-0" style="margin-bottom: auto !important;padding-left: 4px;padding-right: 4px;">
+    
+                    <h3 class="text-center"><strong>Tên Quán</strong></h3>
+                    <h6 class="text-center">Địa chỉ: abc xóm chùa, Q9, HCM</h6>
+                    <h5 class="text-center"><strong>Phiếu Thanh Toán</strong></h5>
+                    <h4 class="modal-title mx-2 card-title text-primary" id="modalFullTitle-bill"><i class='bx bx-restaurant'></i><strong id="idBan-bill"></strong></h4>
+                    <h6 class="text-muted mx-2" id="modalDateCheckin-bill"></h6>
+                    <div class="col-12 bg-menu-theme" id="formModalLeftBody-bill">
+                      <div class="table-responsive text-nowrap">
+                        <table class="table table-sm">
+                          <thead>
+                            <tr>
+                              <th class="text-center">#</th>
+                              <th>Sản phẩm</th>
+                              <th class="text-center">Giá</th>
+                              <th class="text-center">SL</th>
+                              <th class="text-end">T.Tiền</th>
+                            </tr>
+                          </thead>
+                          <tbody id="cart-body-bill" class="table-border-bottom-0">
+                            <tr>
+                              <td>1</td>
+                              <td><strong>Mỳ xào bò</strong></td>
+                              
+                              <td><span class="badge bg-label-primary me-1">45.000</span></td>
+                              <td class="text-center">                                                
+                                2
+                              </td>
+                              <td class="text-end">90.000</td>
+                            </tr>                                            
+                          </tbody>
+                          <tfoot class="table-border-bottom-0" id="cart-footer-bill">
+                            <tr>
+                              <th></th>
+                              <th>Tổng:</th>
+                              <th></th>
+                              <th class="text-center">2</th>
+                              <th class="text-end">90.000</th>
+                            </tr>
+                          </tfoot>
+                        </table>
+                      </div>
+                      <hr class="text-center">
+                      <h5 class="text-center">Chúc quý khách vui vẻ và hẹn gặp lại</h5>
+                    </div>
+                  </div>
+                  
+    
+                  <div class="offcanvas-footer mx-2 mb-2 flex-grow-0 text-center">
+                    <button onclick="printBillBTN()" type="button" class="btn btn-primary mx-2 content-footer footer"><i class='bx bx-printer'></i> In hóa đơn</button>
+                    <button type="button" class="btn btn-outline-secondary content-footer footer" data-bs-dismiss="offcanvas"><i class='bx bx-window-close'></i> Đóng</button>
+                  </div>
+                </div>
+            </div>
+            <!-- / Content -->
+
+            <!-- / Xem hóa đơn - hiển thị bên trái màn hình-->
+
+            <!-- Footer -->
+            <footer class="content-footer footer bg-footer-theme">
+              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0">
+                  ©
+                  <script>
+                    document.write(new Date().getFullYear());
+                  </script>
+                  , made with ❤️ by
+                  <a href="#" target="_blank" class="footer-link fw-bolder">Chàng Mít. .</a>
+                </div>
+                <div>
+                  <a href="#" class="footer-link me-4" target="_blank">License</a>
+                  <a href="#" target="_blank" class="footer-link me-4">More Themes</a>
+
+                  <a
+                    href="#"
+                    target="_blank"
+                    class="footer-link me-4"
+                    >Documentation</a
+                  >
+
+                  <a
+                    href="#"
+                    target="_blank"
+                    class="footer-link me-4"
+                    >Support</a
+                  >
+                </div>
+              </div>
+            </footer>
+            <!-- / Footer -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+    <script src="js/indexJS.js"></script>
+
+
+
+    <!-- Page JS -->
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  </body>
+</html>
